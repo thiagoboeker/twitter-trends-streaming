@@ -1,7 +1,7 @@
 # Twitter-Trends-Streaming
 This mini project is just a little bit of fun with Akka Streams.
 I've been passionate about learning Akka/Stream/Reactive technologies, although right now it's not a so desireable skill in my current
-location...I believe this tech is gold and I'm looking foward to become a master of Reactive Programming.That's my main goal.
+location...I believe this tech is gold and I'm looking forward to become a master of Reactive Programming.That's my main goal.
 
 ### The Goal
 The goal of the project was to build a service that could extract information about the trending topics of Tweeter through their API.
@@ -26,9 +26,9 @@ context so I could easily authenticate using my API Key and API Secret:
 ```
 
 The main parts of this bit are the mapAsync's which here are used to propagate the resolved responses of the futures, and the request function.
-The first argument of mapAsync is the parallelism level defines how many parallel executions are permitted.Another thing is the throttling 
-which is very useful to limitate the rate of sources is this case due to Rate limits from my license of the API or just for convenience. 
-The way that it was thought is one token for request so throttling here its seemed fine.The request and auth functions are like the following:
+The first argument of mapAsync is the parallelism level defines how many parallel executions are permitted. Another thing is the throttling 
+which is very useful to limitate the rate of source operators, in this case due to Rate limits from my license of the API or just for convenience. 
+The way that it was thought is one token for request so throttling here seems fine.The request and auth functions are like the following:
 
 ```scala
   def auth(apiKey: String, apiSecret: String) = Authorization(BasicHttpCredentials(apiKey, apiSecret))
@@ -38,7 +38,7 @@ The way that it was thought is one token for request so throttling here its seem
 ```
 
 ### Websocket
-Handling Websocket connections with Akka is pretty straightfoward
+Handling Websocket connections with Akka is pretty straightforward
 
 ```scala
   def apiHandler(apiKey: String, apiSecret: String)(implicit sys: ActorSystem, mat: ActorMaterializer, ex: ExecutionContext) = {
